@@ -1,0 +1,53 @@
+{% extends "layouts/index.html" %}
+{% block content%}
+<br />
+
+
+<form action="/product/add" method="POST">
+    {% csrf_token %}
+
+
+
+
+    <div class="form-group">
+        
+        <label for="exampleInputEmail1">Name</label>
+        {{form.name}}
+        {% for error in form.name.errors %}
+        <p>{{error}}</p>
+        {% endfor%}
+
+        <label for="exampleInputEmail1">Price</label>
+        {{form.price}}
+        {% for error in form.price.errors %}
+        <p>{{error}}</p>
+        {% endfor%}
+
+        <label for="exampleInputEmail1">Description</label>
+        {{form.description}}
+        {% for error in form.description.errors %}
+        <p>{{error}}</p>
+        {% endfor%}
+
+        
+        <label for="exampleInputEmail1">Image</label>
+        {{form.image}}
+        {% for error in form.image.errors %}
+        <p>{{error}}</p>
+        {% endfor%}
+
+
+        <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    </div>
+
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<style>
+    .mt-bot {
+        margin-bottom: 10px
+    }
+</style>
+{% endblock %}
